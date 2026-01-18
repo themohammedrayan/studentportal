@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Header Section with Logo -->
+  <div class="header-section">
+    <div class="logo-container">
+      <img src="logo.png" alt="Company Logo" class="company-logo" />
+      <div class="header-text">
+        <h1 class="main-title">Student Portal</h1>
+        <p class="subtitle">Search & Track Student Information</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <h2 class="page-title">🔍 Find Student</h2>
+    <div class="search-box">
+      <input
+        id="enrollment"
+        placeholder="Enter Enrollment ID, Student ID, or Phone Number"
+        autocomplete="off"
+        onkeypress="if(event.key === 'Enter') checkAndSearch()"
+      />
+      <button onclick="checkAndSearch()">Search</button>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div id="error" class="error"></div>
+
+  <!-- Floating Loader Overlay -->
+  <div id="loader-overlay" class="loader-overlay" style="display: none;">
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+      <p class="loader-text">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Enrollment Selection Modal -->
+  <div id="enrollment-modal" class="modal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeEnrollmentModal()">&times;</button>
+      <h3>Select an Enrollment</h3>
+      <p>Multiple enrollments found for this student. Please select one:</p>
+      <div id="enrollment-list"></div>
+    </div>
+  </div>
+
+  <!-- Student Details Cards -->
+  <div id="cards" class="card-container"></div>
+
+  <!-- Attendance Heatmaps -->
+  <div id="heatmap-container" style="display: none;">
+
+    <!-- Daily Attendance -->
+    <div id="daily-heatmap" class="heatmap-section">
+      <h3>Daily Location Summary (Last 90 Days)</h3>
+      <div id="daily-calendar"></div>
+    </div>
+
+  </div>
+
+  <!-- Exam Results Section -->
+  <div id="exam-result-container" style="display: none;">
+    <h3>Exam Results</h3>
+    <div id="exam-result-table"></div>
+  </div>
+
+  <!-- Optional Debug Output (enable only if needed) -->
+  <pre id="output" style="display: none;"></pre>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
