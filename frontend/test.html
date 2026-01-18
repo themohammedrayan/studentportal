@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Chain Test</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h3>Student → Attendance API Test</h3>
+
+  <input id="enrollment" placeholder="Enrollment ID" />
+  <button onclick="searchAndGetAttendance()">Search Student</button>
+
+  <pre id="output"></pre>
+
+  <div id="heatmap-container" style="margin-top: 30px;">
+    <div id="batch-heatmap">
+      <h3>Batch Attendance Heatmap</h3>
+      <div id="batch-calendar"></div>
+    </div>
+    
+    <div id="hostel-heatmap" style="margin-top: 40px;">
+      <h3>Hostel Attendance Heatmap</h3>
+      <div id="hostel-calendar"></div>
+    </div>
+  </div>
+
+  <script src="js/test.js"></script>
+</body>
+</html>
