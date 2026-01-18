@@ -190,7 +190,12 @@ async function searchStudent() {
     }
     let batch = data['student_batch_name'];
     let status = data['docstatus'] === 2 ? 'Cancelled':data['is_dropped']===1 ? 'Dropped': data['has_joined'] === 1 ? 'Joined':'Active'
-
+    let start_date = null
+    if (data['has_joined']===1) {
+      start_date = data['date_of_joined']
+    } else {
+      start_date = data['enrollment_date']
+    }
 
     
 
@@ -218,6 +223,10 @@ async function searchStudent() {
       <div class="card">
         <div class="label">Status</div>
         <div class="value">${status}</div>
+      </div>
+      <div class="card">
+        <div class="label">${data['has_joined'] === 1 ? "Joining Date" : "Enrollment Date"}</div>
+        <div class="value">${start_date}</div>
       </div>
       <div class="card">
         <div class="label">Batch</div>
