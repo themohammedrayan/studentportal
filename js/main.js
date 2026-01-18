@@ -182,6 +182,17 @@ async function searchStudent() {
     let student_id_value = data['student'];
     studentId = student_id_value;
     enrId = enr_id;
+    let center = data['preferred_centre'];
+    let hostel_or_day_scholar = data['hostel_or_day_scholar'];
+    let hostel = 'NA';
+    if (hostel_or_day_scholar === 'Hosteller') {
+      hostel = data['hostel']
+    }
+    let batch = data['student_batch_name'];
+    let status = data['docstatus'] === 2 ? 'Cancelled':data['is_dropped']===1 ? 'Dropped': data['has_joined'] === 1 ? 'Joined':'Active'
+
+
+    
 
     cards.innerHTML = `
       <div class="card">
@@ -202,7 +213,23 @@ async function searchStudent() {
       </div>
       <div class="card">
         <div class="label">Contact Number</div>
-        <div class="value amount">${student_mobile}</div>
+        <div class="value">${student_mobile}</div>
+      </div>
+      <div class="card">
+        <div class="label">Status</div>
+        <div class="value">${status}</div>
+      </div>
+      <div class="card">
+        <div class="label">Batch</div>
+        <div class="value">${batch}</div>
+      </div>
+      <div class="card">
+        <div class="label">Center</div>
+        <div class="value">${center}</div>
+      </div>
+      <div class="card">
+        <div class="label">Hostel</div>
+        <div class="value">${hostel}</div>
       </div>
       <div class="card">
         <div class="label">Offered Amount</div>
