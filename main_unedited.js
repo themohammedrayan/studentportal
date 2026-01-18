@@ -37,10 +37,8 @@ async function checkAndSearch() {
         ? `phone=${encodeURIComponent(input)}`
         : `student_id=${encodeURIComponent(input)}`;
       
-      // Production API: https://studentportal-cwrg.onrender.com
-      // Local Dev API: http://localhost:5000
       const res = await fetch(
-        `https://studentportal-cwrg.onrender.com/enrollments-by-student?${queryParam}`
+        `https://studentportal-cwrg.onrender.com` //http://localhost:5000/enrollments-by-student?${queryParam}`
       );
       
       // Hide loader
@@ -152,10 +150,8 @@ async function searchStudent() {
   }
 
   try {
-    // Production API: https://studentportal-cwrg.onrender.com
-    // Local Dev API: http://localhost:5000
     const res = await fetch(
-      `https://studentportal-cwrg.onrender.com/enrollment?enrollment=${encodeURIComponent(enrollment)}`
+      `http://localhost:5000/enrollment?enrollment=${encodeURIComponent(enrollment)}`
     );
 
     if (res.status !== 200) {
@@ -234,10 +230,8 @@ async function searchStudent() {
 }
 
 async function getAttendance() {
-  // Production API: https://studentportal-cwrg.onrender.com
-  // Local Dev API: http://localhost:5000
   const res = await fetch(
-    `https://studentportal-cwrg.onrender.com/attendance?student_id=${encodeURIComponent(studentId)}`
+    `http://localhost:5000/attendance?student_id=${encodeURIComponent(studentId)}`
   );
 
   if (res.status !== 200) {
@@ -252,10 +246,8 @@ async function getAttendance() {
 
 async function getExamResult() {
   const enrollment = document.getElementById("enrollment").value;
-  // Production API: https://studentportal-cwrg.onrender.com
-  // Local Dev API: http://localhost:5000
   const res = await fetch(
-    `https://studentportal-cwrg.onrender.com/result?enrollment=${encodeURIComponent(enrollment)}`
+    `http://localhost:5000/result?enrollment=${encodeURIComponent(enrollment)}`
   );
 
   if (res.status !== 200) {
